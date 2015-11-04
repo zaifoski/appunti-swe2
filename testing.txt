@@ -181,4 +181,20 @@ JASMINE
 
 - la parte complicata è capire quale test case usare
 
+------------------------------
+http://blanketjs.org/
+------------------------------
+04/11/2015
+trentose\07-blanket\water
+------------------------------
 
+- Statistiche sul coverage dei casi di test utilizzando diverse metriche.
+- Si integra molto bene con Jasmine, basta aggiungere due righe.
+- Source code - dist - jasmine
+- Jasmine usavamo 2, ma è compatibile con 1.3
+- esempio su github funziona con 1.3 di jasmine
+- aggiunge alla fine del report alcune statistiche
+- <script type="text/javascript" src="js/water.js" data-cover></script>
+  data-cover indica a blanket di fare un parsing di questo file
+- per farlo partire devo fare Anteprima Live
+- all'esame individuo i bugs con jasmine ma NON LI CORREGGO
