@@ -1,0 +1,350 @@
+http://www.infoq.com/resource/minibooks/kanban-scrum-minibook/en/pdf/KanbanAndScrumInfoQVersionFINAL.pdf
+----------------------------------
+Riassunto di:
+----------------------------------
+Kanban and Scrum -
+making the most of both
+----------------------------------
+Henrik Kniberg & Mattias Skarin
+----------------------------------
+
+KANBAN
+
+1- One key idea: limit the work in progress (WIP)
+
+2- Visualize the workflow
+
+3- Measure the Lead time
+
+4- Change is ok as long as you
+
+  don't put more items in the todo column than 
+the limit
+
+SCRUM
+
+3- Sprint backlog must fit in a sprint, measure velocity
+4- Resist change within an iteration
+5- Split work, prioritize, estimate
+7- Daily meetings and burndown chart
+8- Small cross-functional teams
+9- Roles
+10- Fixed-length iterations
+11- Retrospective 
+
+----------------------------------
+1. What are Scrum and Kanban anyway?
+----------------------------------
+
+Scrum -> Small, cross-functional, selforganizing teams
+      -> small, concrete deliverables.
+         Sort items by priority and estimate the relative effort
+      -> fixed-length iterations (1–4 weeks) with potentially shippable code
+      -> update priorities in collaboration with the customer
+      -> Optimize the process by a retrospective after each iteration
+Kanban-> Visualize the workflow
+         -> Split the work into pieces, 
+            write each item on a card and
+            put on the wall.
+         -> Named columns to illustrate where each item is in the workflow.
+      -> Limit Work In Progress (WIP)
+         assign explicit limits on number of items per workflow state
+      -> Measure the lead time
+         (average time to complete one item)
+         optimize the process to make lead time small and predictable 
+
+----------------------------------
+2. How do Scrum and Kanban relate to each other?
+----------------------------------
+
+- Knife or fork – which tool is better?
+  Meaningless question: the answer depends on your context
+- The value of a tool is that it limits your options:
+  "Do The Right Thing" is guaranteed to work, 
+   because if it doesn’t work, you obviously weren't following the process
+- Do not confuse project success/failure with tool success/failure
+- Do not develop an attachment to any one weapon or any one school of fighting.
+- <- More prescriptive                      More adaptive ->
+  ...                      Scrum - Kanban - Do Whatever
+
+----------------------------------
+3. Scrum prescribes roles
+----------------------------------
+
+Scrum roles:
+  1 - Product Owner (sets product vision & priorities)
+  2 - Team (implements the product)
+  3 - Scrum Master (removes impediments and provides process leadership)
+Kanban & Scrum:
+  You don't have to, but you can  add whatever additional roles,
+  BUT make sure the additional roles actually add value: "less is more"
+
+----------------------------------
+4. Scrum prescribes timeboxed iterations
+----------------------------------
+
+Scrum -> You can choose the length of the iteration,
+         BUT the general idea is to keep the same length over a period of time
+             and thereby establish a cadence. 
+       -> Iteration
+          1. planning
+          2. process improvement
+          3. (ideally) release
+Kanban -> You can choose when to do planning, process improvement, and release.
+          ES release every Monday
+          ES release whenever we have something useful to release 
+
+----------------------------------
+5. Kanban limits WIP per workflow state,
+   Scrum limits WIP per iteration
+----------------------------------
+Difference between a Scrum board and a Kanban board:
+Kanban-> there may be no more than N items in this column at any given moment
+Scrum ->  there is an implicit limit: the iteration itself has a fixed scope
+      -> Most Scrum teams evolve a culture of trying to get the current items
+         done before starting new items.
+=> Scrum:  WIP is limited per unit of time.
+   Kanban: WIP is limited per workflow state. 
+
+
+----------------------------------
+6. Both are empirical
+----------------------------------
+We have some indirect controls:
+ - num. of people
+ - how many people per team
+ - WIP limits
+ - from no to long iterations
+ - how much planning
+Neither Scrum nor Kanban provide all the answers => you have to experiment
+
+Kanban gives a few very useful real-time metrics:
+- Average lead time. Updated every time an item reaches “Done”
+(or whatever you call your right-most column).
+- Bottlenecks. Typical symptom is that Column X is crammed with
+items while column X+1 is empty.
+
+FEEDBACK LOOPS
+- Too long feedback loop means your process improvement will be slow
+VS
+- Too short feedback loop means your process might not have time to stabilize
+
+HOW TO DECIDE WIP IN KANBAN
+- WIP of 1 means items will get through “Ongoing”
+  really fast once they get in, but they will be stuck in “To Do” longer than
+  necessary, so the total lead time across the whole workflow will be
+  unnecessarily high. 
+VS
+- WIP too high means that if there is a problem I rect slow beacuse I can
+  switch to another item
+
+Why do we need a “To do” column anyway?
+- the customer not always available: the “To Do” column gives a small buffer
+
+----------------------------------
+7. Scrum resists change within an iteration 
+----------------------------------
+
+CHANGE -> What if someone turns up and wants to add E to the board? 
+1.Scrum
+  "No, sorry, we've committed to A+B+C+D this sprint. But feel free to add E
+   to the product backlog. If the product owner considers it to be high
+   priority we will pull this into next sprint." 
+  => average response time = 1/2 durata sprint
+VS
+2. Kanban
+   "Feel free to add E to the To Do column. But the
+    limit is 2 for that column, so you will need to remove C or D in that case.
+    We are working on A and B right now, but as soon as we have capacity
+    we will pull in the top item from To Do"
+  => response time = however long it takes for capacity to become available
+
+    Typically the product owner is given some column to the far left,
+    where they can make changes whenever they like. 
+
+----------------------------------
+8. Scrum board is reset between each iteration 
+----------------------------------
+VS In Kanban, the board is normally a persistent thing.
+
+----------------------------------
+9. Scrum prescribes cross-functional teams
+----------------------------------
+A Scrum board is owned by exactly one Scrum team.
+  A Scrum team is cross-functional, it contains all the skills needed
+  to complete all the items in the iteration.
+VS
+A Kanban board is related to one workflow, not necessarily one team. 
+  ES: Release (column 4) is done by a specialist team. There is
+      slight overlap in competencies, so if the release team becomes a
+      bottleneck one of the developers will help them
+      (=> rules needed)
+
+----------------------------------
+10. Scrum backlog items must fit in a sprint 
+----------------------------------
+1. Scrum
+   If an item is too big to fit in a sprint
+   => try to break it into smaller pieces
+   If items tend to be big
+   => iterations will be longer (usually no longer than 4 weeks)
+VS
+2. Kanban
+   tries to minimize lead time and level the flow
+   => indirect incentive to break items into relatively small pieces
+
+----------------------------------
+11. Scrum prescribes estimation and velocity 
+----------------------------------
+
+In Scrum, teams are supposed to estimate the relative size (= amount of
+   work) of each item that they commit to.
+   By adding up the size of each item completed at the end of each sprint,
+   we get velocity (= how much stuff we can deliver per sprint)
+
+VS
+
+In Kanban, if you need to make commitments you need to decide
+   how to provide predictability:
+   - some use scrum
+   - some skip estimation, but try to break each item into pieces of roughly the same size
+   - some group items into MMFs and measure the average lead time per MMF
+     (Minimum Marketable Features)
+
+----------------------------------
+12. Both allow working on multiple products simultaneously 
+----------------------------------
+
+Scrum ->  think of Product Backlog more like a Team Backlog:
+          merge both products into one list (=> prioritize between the products)
+            - One product per sprint
+            - OR features from both products each sprint
+
+Kanban -> It's the same
+            - We might distinguish them using different colored cards
+            - OR by having "swimlanes"
+
+----------------------------------
+13. Both are Lean and Agile
+----------------------------------
+
+- Teams "pull" work when they are ready,
+  rather than having it "pushed" in from the outside.
+- continuous and empirical process optimization
+- emphasize responding to change over following a plan
+  (although Kanban faster than Scrum)
+...
+Scrum ->  When you start talking about making the iteration shorter
+than 1 week you might consider ditching timeboxed iterations entirely. 
+
+----------------------------------
+14. Minor differences
+----------------------------------
+
+PRIORITIZATION
+In Scrum -> by sorting the product backlog,
+         -> take effect in the next sprint
+In Kanban -> any prioritization scheme (or even none)
+          ->changes take effect as soon as capacity becomes available
+This does not make much difference, because:
+Kanban: Whether or not the list is sorted by priority, the team needs
+        some kind of decision rule for which items to pull first
+Scrum: can also be used a Kanban-ish product backlog:
+       limit the size of it + decision rules for how it should be prioritized.
+
+MEETINGS
+Scrum -> prescribed
+Kanban -> most teams seem to do it
+Scrum -> people-oriented meeting - every person reports
+Kanban -> many use a more board-oriented format,
+          focusing on bottlenecks and other visible problems
+          =) more scalable
+
+BURNDOWN CHARTS
+shows, on a daily basis, how much work remains in the current iteration
+Scrum -> prescribed
+      -> to find out early if we are behind or ahead of schedule to adapt
+Kanban -> no chart prescribed
+       -> usually Cumulative Flow Diagram used:
+          Y axis: number of items in each column 
+          X axis: Day
+          Over time we can see how higher velocity reduces lead time,
+          while higher WIP increases lead time. 
+          =) helps minimize the number of items sitting around in queues
+
+----------------------------------
+15. Scrum board vs. Kanban board – a less trivial example
+----------------------------------
+
+Scrum -> The product owner can see but not touch the sprint backlog.
+         He can change the product backlog
+      -> actually shipping the product is usually not included in the sprint
+      -> es: Committed, Ongoing, Done
+Kanban-> es: Backlog-Selected(2)-Develop(3)(Ongoing-Done)-Deploy-Live
+                                                   ||
+                                                   \/
+             production team knows which items they can pull into production
+             
+             Dev limit of 3 is shared among the two sub-columns
+             => incentive to help to get stuff into production when needed
+       -> Each column represents
+           - one workflow state
+           - OR a queue (buffer) between two workflow states
+          => Start simple and add columns as necessary
+       -> When the Kanban limit for "your" column has been reached
+          -> help fix the bottleneck
+          -> If there is no bottleneck 
+             => the Kanban limit might be too low (=> bad productivity)
+       -> If many items sit still for a long time
+             => Kanban limit might be too high (=> bad lead time)
+       -> LIMITS
+          -> Some teams treat them as strict rules
+          -> some teams treat them as guidelines or discussion triggers
+
+----------------------------------
+16. Summary of Scrum vs. Kanban
+----------------------------------
+
+SIMILARITIES
+• Both are Lean and Agile.
+• Both use pull scheduling.
+• Both limit WIP.
+• Both use transparency to drive process improvement.
+• Both focus on delivering releasable software early and often.
+• Both are based on self-organizing teams.
+• Both require breaking the work into pieces.
+• In both, the release plan is continuously optimized based on
+  empirical data (velocity / lead time).
+
+DIFFFERENCES
+Scrum			Kanban
+---------------------------------------------------------
+Timeboxed iterations prescribed.
+			Timeboxed iterations optional (Can be eventdriven)
+Team commits to a specific amount of work for this iteration.
+			Commitment optional.
+Uses Velocity as default metric
+			Uses Lead time as default metric.
+Cross-functional teams prescribed.
+			Cross-functional teams optional. Specialist teams allowed.
+Items -> can be completed within 1 sprint.
+			No item size is prescribed.
+Burndown chart prescribed.
+			No diagram is prescribed.
+WIP limited indirectly (per sprint)
+			WIP limited directly (per workflow state)
+Estimation prescribed.	Estimation optional.
+Cannot add items to ongoing iteration.
+			Can add new items whenever capacity is available.
+Sprint backlog owned by one team.
+			Kanban board may be shared.
+Prescribes 3 roles (PO/SM/Team)
+			Doesn’t prescribe roles
+Scrum board -> reset between sprints.
+			Kanban board is persistent.
+Prioritized product backlog.
+			Prioritization is optional. 
+
+----------------------------------
+69-122: Part 2 - Case study
+----------------------------------

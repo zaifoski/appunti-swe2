@@ -1,0 +1,70 @@
+----------------------------
+----------------------------
+VERSIONING
+----------------------------
+----------------------------
+- sw -> ha tante versioni
+- se arriva un bug mentre lavoro a una nuova feature
+  risolvo i bug lavorando sulla vecchia versione, sfruttando i branches
+- staging area = indice che dice a repository che lo aggiungo all'elenco
+  files da dopo aggiornare
+- git add -A per aggiungere tutti i file, anche le eliminazioni
+
+VIDEO: https://youtu.be/0fKg7e37bQE
+       + secondo tutorial per lavorare con branches
+
+- git clone https://github.com/zaifoski/trentose-bdt trentose-carlo
+
+se al push mi dà errore faccio git pull
+se non riesce a fare automerging rileva un conflict
+
+git branch -d feature-branch #per cancellare branch
+#per sul server non si ricorda
+
+git push -u origin feature-social #per pushare il nuovo branch
+
+quando la repository feature-social funziona voglio portare il cambiamento
+su master. per farlo devo prima fare un merge da master:
+git merge feature-social
+e poi fare git push
+
+merge per aggiungere il branch fix al branch deature social
+
+di solito ogni bug ha un id
+
+eBay
+              v1 v1.1   v2
+master  () () () ()     ()
+feature social() () ()
+
+
+problema, soluzione di base, più nuova modifica in altro branch
+<<<<<<< HEAD
+cio che hai in locale
+||||||| merged common ancestors
+=======
+cio che c'è sul server
+>>>>>>> commit fatto da me
+
+- fork
+  git clone url-dove-c'e'-scritto-clone nomecartella
+  git branch my-feature
+  git push -u origin my-feature
+  git checkout my-feature
+  ...lavoro...
+  git add -A
+  git commit -m "add my-feature"
+  git push
+  git checkout master
+  git merge my-feature
+  git push
+
+- git checkout -b social-feature origin/social-feature
+  
+  =
+
+  git fetch
+  git checkout social-feature
+
+  cioè faccio il checkout ad un branch che non ho creato io e
+  del quale non ho ancora traccia in locale

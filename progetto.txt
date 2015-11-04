@@ -1,0 +1,30 @@
+----------------------------
+----------------------------
+PROGETTO
+----------------------------
+----------------------------
+
+- opzionale
+- un paio di punti in più
+- chiedono feedback su chi lavora di più chi meno
+- gruppi 4-6 persone
+- migliorare benessere interazioni sociali con persone più anziane
+- incoraggi NOI a essere in contatto coi più anziani o come la tecnologia può aiutare i più anziani
+  a sentirsi utile, comunicare, ... giovani interagire con gli anziani
+- html, css, js, casi di test in jasmin, github come strumento di lavoro quotidiano,
+- pianificare una sprint da qua a metà dicembre (consegna) con le stories
+- se non sappiamo fare backend, va bene simularla, es con funzioni js che lo simulino
+- tra 15 gg consegnare la sprint e la descrizione del problema che vogliamo gestire e nostra soluzione
+  demo finta, mockup che comunica la soluzione
+  storie, how to demo, effort
+- metà diciembre demo finale
+- essere creativi nella prima demo, parzialmente validato con feedback mio di colleghi amici ecc
+- per il contesto del corso possiamo fare un minimum product
+- telefono/tablet/orologio/ecc
+- posso fare un'applicazione che studia il problema, es studiare quali sono le barriere
+  all'interazione
+- git e github come modo di consegna
+- problema, mia soluzione, quali benefici porta
+- prima soluzione -> concept video
+
+- su google spreadsheet posso proteggere la mia cella

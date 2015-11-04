@@ -1,0 +1,128 @@
+03/11/2015
+------------------------------------------
+------------------------------------------
+Qualità del codice
+------------------------------------------
+------------------------------------------
+
+tipi di qualità:
+  interna -> visibile allo sviluppatore
+  esterna -> visibile all'utente
+  maintenativity -> interna
+  reliability -> esterna
+  qualità di prodotto vs. di processo
+  qualità interna ha impatto su quella esterna e del processo su quella del prodotto
+
+Qualità del prodotto e del codice: lista di termini che bisogna sapere:
+
+CORRETTEZZA -> se soddisfa le specifiche, es esegue corettamente a/b
+               assume che le specifiche ci siano e siano sufficientemente precise
+RELIABILITY -> probabilità che funzioni senza failure per un certo intervallo di tempo
+               affidabilità
+               se specifiche ben scritte e complete, tutto il sw corretto è reliable
+               può accadere il contrario, es. problemi sulle feature poco usate
+ROBUSTNESS -> funziona bene anche in circostante diverse da quelle previste
+              es. funziona bene anche se dò un input non previsto da specifiche formali
+PERFORMANCE -> velocità, misurata o stimata, quando sono solo io
+SCALABILITà -> quanto scala al crescere di qualche specifico parametro
+               performance buone al crescere di x (di solito del num di utenti, o delle dimensioni dei dati)
+USABILITà -> intuitività, rapidità, numero dei tap, livello di attenzione (competizione con gli altri stimoli che ho)
+             spesso ci suggeriscono cosa scrivere o le azioni per minimizzare tempo e liv. di attenzione
+GENERALITà -> dato un problema p, cerco di risolvere problema p' che includa anche p
+              es. p = sorting di array di interi positivi, p' sorting di array di reali
+              => riuso del codice, anticipo cambiamenti (mi immagino verrà fuori questo requirement)
+              molto stressato negli anni 90, invece
+              metodi agili dicono di non farlo, perché non sai come i requirement cambieranno e sprechi tempo e focus
+              però spesso lo faccio perché risolvere il problema generale è più semplice (o comunque non più complicato)
+RIUSABILITà -> può essere usato per scrivere un altro prodotto
+PORTABILITà -> sw portabile su piattaforme diverse (mac, windows, linux, android, iphone ecc)
+MAINTENABILITY -> madre di tutte le proprietà
+               era: cambiamento dopo una release
+                    20% correzzione bugs
+                    20% cambiava sistema sottostante
+                    60% miglioramento qualità prodotto
+               oggi: continuous maintenance, manutenzione è lo sviluppo
+                     EVOLVABILITY -> sw deve essere pensato e scritto in un certo modo
+
+---------------------------------------
+QUALITà DEL CODICE, opinioni auteroveli
+---------------------------------------
+- Take time to write good code. DIFFICILE, semplicemente per chi è più bravo:
+  (poco tolleranti verso chi è meno eccezionale e tendono a pensare che quello che faranno sarà quasi sempre perfetto)
+- Scrivere casi di test o indentare bene, se lo rimando non lo farò mai
+- Elegante e (streight forward) che renda difficile ai bugs a nasconderti
+  (non scrivere cose misteriose perché i bugs li risolvono anche altri)
+- Codice che può essere letto e arricchito da qualcun'altro
+- Che sembri scritto da una persona che ci tiene
+- Codice ben fatto è quasi come leggere un libro (anche la bisnonna deve capire cosa fa)
+- Codice manutenibile proprietà principale di buon codice
+  La persona che sistema gli errori è diversa da chi crea e chi trova il bug
+  Essenziale anche per la felicità del team, che preferisce usare il tempo per lo sviluppo di feature, non risoluzione bugs inseriti da altri
+  La funzione viene letta un sacco di volte => non voglio minimizzare tempo di scrittura, bensì di lettura
+  => codice comprensibile e leggibile
+  leggibile = codice consistente, stesse convenzioni, deve sembrare scritto sempre dalla stessa persona
+
+Imparare prassi del linguaggio, non solo regole:
+  - in loop, i,j,k
+  - il nome deve riflettere quello che fanno
+  - catch get o read da db, ne scelgo uno e uso sempre quello
+  - come separo parole di stessa stringa
+  - nomi classi, function, varabili, costanti (minuscole e maiuscole rispettate)
+  - nomi pronunciabili e cercabili con ctrl+f (non a)
+  - verbi per funzioni e nomi classi
+  - no side effect, una funzione fa quello che deve e non altro -> predicibile e non sorprendente
+
+Funzione
+  - non in stessa funzione cose a livelli di astrazione diversi
+  - corte (5-7 linee / 20 linee come ordine di grandezza)
+  - nomi di funzioni leggibili
+  - pochi parametri, il num. di parametri fa esplodere spazio dei casi di test
+  - commenti -> varie scuole di pensiero
+     - tanti? o vuol dire che il codice è illeggibile? se cambio codice devo cambiare commento
+     - usarli solo se funzione fa qualcosa per cui ci potrebbe essere ambiguità
+     - usare sequenze di caratteri che permettono di descrivere funzione che ci sono dei programmi che possono analizzarli e creare documentazione
+
+Encapsulation e information hiding
+  - riddurre accessibilità di variabili e funzioni, così è più facile fare cambiamenti senza impattare chi usa il mio pezzo di codice
+  - es per il mondo esterno usi liste, dentro fai quello che vuoi
+
+Oggetti ?
+  - self classing
+  - in auto, variabile veicolo invece che ereditarietà
+
+Variabili globali
+  - Non usare variabili globali quando possibile
+  -> causa name clash = stesso nome con intenti differenti
+  - In js se non dico var appartengono a namespace globale, non va bene
+
+Cohesion e coupling
+  - modulo coeso internamente, ma disaccoppiato da altri moduli
+  - diverse funzioni in mio modulo si chiamino tra loro, minimizzare chiamate ad altri moduli
+    => cambio del modulo in basso l'impatto su altri moduli sarà limitato all'iterfaccia
+    => semplifica gestione dei cambiamenti
+
+Design patterns
+  - pattern = soluzione a un problema comune
+  - (es: js -> come fare struttura simil-a classi e sottoclassi, es decorator/functional pattern, anche se non ci sono nativamente le classi)
+  - best practise, come implementare un certo comportamento
+    =) le persone hanno sperimentato lungamente
+    =) semplifico lettura del codice e comunicazione
+
+Model-view-octopus (es di pattern che riguarda organizzazione del codice)
+  - Corso Udacity -> js design patterns -> ci fanno vedere model-view-controller e varianti
+  - Non dobbiamo sapere differenze tra le varianti, il corso di udacity lo chiama model-view-octopus, fa m-v-presenter
+  - Un buon pezzo di codice è quasi sempre strutturato in 3 dimensioni:
+    1 - descrive e gestisce i dati (model)
+    2 - descrive e gestisce visualizzazione dati (view)
+    3 - gestisce logica di trasformazione dati per richiesta utente (controller)
+    es: html, css -> struttura e stile pagine e il document object model
+        js -> manipolare dom, parte di view
+        parte di model che descrive i dati
+        cambiamento utente attiva controller che modifica model
+        controller -> chiama funzioni js
+        es: voglio cancellare libro -> delete book su controller che cambia modello
+    in alcuni paradigmi la view sente i cambiamenti sulla model aggiornandosi automaticamente
+    model-view-presenter -> controller controlla tutto
+  - =) separo i compiti, se adesso uso array invece che lista per gli alberghi è trasparente alla view
+       minimizza impatto cambiamenti gli uni su gli altri
+  - perché i requirement cambiano spesso

@@ -1,0 +1,184 @@
+-------------------------------
+-------------------------------
+TESTING TEORIA
+-------------------------------
+-------------------------------
+
+-------------------------------
+TIPI DI TESTING
+-------------------------------
+
+BLACK BOX TESTING -> non ci posso guardare dentro
+WHITE BOX TESTING -> conosco com'è strutturata l'applicazione e il codice sorgente, posso scrivere i casi di test sfruttando questa conoscenza, cerco di testare il maggior numero di righe di codice possibile
+
+UNIT TESTING (o small tests) -> quando testo una singola funzione, scritti da chi scrive la funzione stessa. a prescindere dall'utilizzo della funzione
+INTEGRATION TESTING -> set di funzioni già testate come unit test, testa se si parlano correttamente tra loro
+SYSTEM TESTING -> testa il sistema nel suo complesso
+
+Posso testare se
+- fa quello che deve,
+- l'usabilità,
+- le performance,
+- se è bucabile,
+- se è affidabile (cioè se funziona bene anche al limite o oltre)
+
+ACCEPTANCE TESTING -> il mio cliente che accetta il sw, i requisiti contrattuali sono stati soddisfatti?
+REGRESSION TESTING -> faccio un test, vedo che il sistema fallisce, corrego i bugs e ritesto, o comunque quando modifico parti del sistema che funzionavano, devo ritestare (rigirare i casi di test su un sw che ho cambiato)
+
+A/B TESTING -> si riferisce a due versioni diverse della stessa cosa e vedono quale funziona meglio, o quale funziona (non è strettamente correlato col sw). Fatto su una piccola percentuale casuale di utenti, es amazon prova una nuova interfaccia per vedere se porta a maggiori acquisti.
+
+-------------------------------
+DESIGNING TEST CASES -> BLACK BOX TESTING
+-------------------------------
+
+- Problema: numero di test cases scrivibili non è finito
+=> testing trade off, numero trattabile ma che massimizzi le probabilità di trovare bugs
+ES: enqueue(7)
+    x=dequeue()
+    if x==7: success else fail
+    -> serve per testare enqueue e dequeue. Ragionevolmente funziona per gli interi positivi,
+       ma è meglio testare anche 0, -1, 3.5, numeri molto grandi, stringhe
+
+EQUIVALENCE PARTITIONING
+= partizionari l'insieme dei dati in input in classi equivalenti da p.to di vista del testing.
+- per il black box testing non sarò mai sicura di questa cosa, è una ragionevole assunzione, non certezza
+Scopo: capire come lo partizioniamo, per testare solo un p.to per ogni partizione
+- classi valide vs classi invalide (dove deve tornare codice di errore)
+  nr of inputs, input type, casi particolari
+ESERCIZIO
+Il sistema si aspetta 3 interi tra 1 e 9, e dà come output se è equilatero, scaleno o isoscele
+- "AB" 2 4, 1 2, -3 5 8, 3.7 1 4, 0 2 3, 10 9 8, 10 9 8 11, simboli
+  -> errore input non valido, come input invalidi devo testare indipendentemente il primo secondo e terzo parametro. Noi dobbiamo scrivere i numeri esatti, non una descrizione generica
+- 1 2 5 -> errore no triangolo
+- 3 3 3 -> equilatero
+- 3 2 3 -> isoscele
+- 3 5 6 -> scaleno
+
+- Fare funzioni con pochi parametri perché sono molto più testabili, perché i casi di test esplodono esponenzialmente
+
+BOUNDARY VALUES
+- se prende interi positivi testerò anche 1
+- faccio boundary values analysis, cioè oltre che prendere un valore per ogni partizione, prendo dei valori sui confini e subito sopra e subito sotto (se i valori sono discreti)
+ES: per valore assoluto le classi sono <0 e >=0 per le quali prendo -10 e 100, ma testo per i boundary anche 0, 1 e -1
+
+TIME-DEPENDENT ISSUES
+- Se il sw ha comportamenti che dipendono dal tempo o vincoli di performance, vanno testati anche quelli
+
+21ottobre2015
+
+ESERCIZIO
+flight cost([]) -> sum
+parametro lista da 1 a 3 valori in € interi
+(In genere basta controllarlo su una posizione, io qui l'ho fatto per tutte)
+Le liste da uno o due elementi le testo solo sui casi validi, non anche su quelli invalidi come ho fatto io qui
+
+Soluzione prof:
+[5,10,15] -> 30
+[15] -> 15
+[0] -> 0
+[300^4000, 10, 15] -> 300^4000 + 10 + 15
+[0,5,4] -> 9
+[5,0,4] -> 9
+[5,4,0] -> 9
+[8.3, 10, 30] -> error
+[10, 8.3, 30] -> error
+[10, 30, 8.3] -> error
+[-1, 10, 30] -> error
+[10, -1, 30] -> error
+[10, 30, -1] -> error
+["a", 10, 30] -> error
+[10, "a", 30] -> error
+[10, 30, "a"] -> error
+[] -> error
+null -> error
+[40,40,87,2] -> error
+
+FAULT INJECTION
+= generare un fault nel sistema,
+per testare la robustezza della funzione a errori del sistema sottostante.
+es. sostituisco la open con una myopen che nel 5% dei casi genera un errore
+    per verificare che il mio codice riesca a gestire questo faul senza crash
+
+-------------------------------
+WHITE BOX TESTING
+-------------------------------
+
+- Problema: capire quanto testing è suffuciente
+
+TEST COVERAGE
+- Quale porzione del codice stiamo sollecitando con i test cases?
+- Vogliamo testare il maggior numero possibile di righe di codice sorgente
+
+STATEMENT COVERAGE
+- percentuale di statement eseguita da un insieme di test case
+:) è una misura oggettiva
+:) sappiamo come ottenere 100% coverage
+:( non possiamo trovare bugs per linee di codice che non ci sono
+- è difficile raggiungere 80% coverage, molti si accontentano di percentuali inferiori
+
+BRANCH COVERAGE
+- Testiamo il codice in modo che ogni branch prenda entrambe le strade.
+
+LOOP COVERAGE
+- Ogni loop sia eseguito 0, 1 e più di 1 volta.
+
+MODIFIED CONDITION DECISION COVERAGE (MC/DC)
+- Usati solo per per mattoni usati da tanti altri sw o per safety-critical
+- Branch coverage + ogni termine della condizione prenda vero o falso
+ES: if A or (B and C): ecc
+    - provo A vero e A falso, bloccando (B and C), in modo che A sia decisivo:
+      qui perché A sia decisivo (B and C) deve essere false
+    - metto A a false e provo per (B and C) a (true and true) e a (false and true)
+    - MC/DC di secondo ordine sarebbe provare anche (B and C) dimenticando A
+
+PATH COVERAGE ?????????
+- Ogni possibile execution sequence del codice
+- nell'esempio
+    prima entro nel "for i in range(x)" e
+    poi nell'"if y", poi in nessuno dei due:
+  due casi di test
+
+BOUNDARY VALUE COVERAGE
+
+CONCURRENT AND SYNCHRONIZATION COVERAGE
+- Transazioni
+- Il codice tra un lock e un unlock deve essere eseguito in modo autonomo
+! complesso
+
+CODE NON COVERED
+- potrei aggiungere dei casi di test per avere almeno 100% statement coverage
+- potrei decidere di non testare funzioni non fondamentali
+- se ho parti di codice irraggiungibile => probabilmente ho sbagliato qualcosa
+
+ESEMPIO reale: SQLITE
+- 78000 righe di codice
+- righe di codice per il testing: 91 milioni
+- per ogni bug riportato, oltre a essere corretto si aggiungono i test cases
+- 100% branch coverage e 100% mcdc coverage
+
+PyCharm -> run with coverage
+
+
+-------------------------------
+-------------------------------
+TESTING LAB
+-------------------------------
+-------------------------------
+
+
+-------------------------------
+JASMINE
+-------------------------------
+- framework per fare test in modo automatico
+- è behaviour driven
+- it ("should successfully identify valid triangles", function(){
+    expect(input).toBe(value);
+  });
+
+- toBe       === 
+  not.toBe   !=
+  toEqual    ==
+
+- la parte complicata è capire quale test case usare
+
+

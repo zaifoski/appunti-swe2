@@ -1,0 +1,223 @@
+-----------------------
+-----------------------
+https://sites.google.com/a/unitn.it/software-engineering-ii---designing-applications-that-matter/web-labs/lab-03--dom-manipulation-with-jquery
+Lab 3- DOM manipulation with jQuery
+-----------------------
+-----------------------
+
+-----------------------
+1. The Document Object Model
+-----------------------
+DOM è un'API che definisce la struttura logica del documento e come esso viene
+accesso e manipolato.
+            window
+              |
+   +----------+----------+            
+   |          |          |
+history    document   location(url)
+              ||
+              \/
+DOM provides APIs to access and manipulate structure, properties, content of document
+
+-----------------------
+2. Loading jQuery
+-----------------------
+
+    <script src="jquery-2.1.0.min.js"></script>                            
+    <script src="script.js"></script>
+ </body>   
+...
+ 
+ $( document ).ready(function() {   
+ });                  
+
+-----------------------
+3. Accessing elements of a document
+-----------------------
+
+$("header");   // get elements of the document by the name of the tag
+$(".quote");  // get elements by class name
+$("#summary");        // get an element by id of the element
+
+$("#summary").html();          // we access the content of the node
+$("#summary").html("text");     // we assign content
+
+$("#summary").append("text");   // appends the text as a children of the element (at the end)
+$("#summary").prepend("text");  // appends the text as a children of the element (at the beginning) 
+
+
+-----------------------
+4. Accessing values of a form
+-----------------------
+
+Input texts
+-----------------------
+ $("input[name=iemail]").val();
+
+Radio and checkbox
+-----------------------
+ $("input[name=sex]:checked").val();
+
+  if more than one value selected:
+  -----------------------
+   $("input[name=drink]:checked").each(function(){ 
+      console.log($(this).val());
+   });
+
+Option select (dropdown)
+ $("select[name=icar]").val();
+-----------------------
+-----------------------
+5. Event handling
+-----------------------
+
+ $(".items").on("click", "li", function (event) {
+    $(event.currentTarget).addClass("selected");
+    //$(this).addClass(selected);
+ });
+
+
+We can also associate the event directly, especially when the element is fixed:
+
+ $(".btn-remove").on("click", function (event) {
+   $(".selected").remove(); 
+ });    
+
+-----------------------
+6. Ajax
+-----------------------
+
+Acronimo per "asynchronous JavaScript and XML", sono tecniche di sviluppo web
+client-side per creare applicazioni asincrone, che mandano/ricevono dati
+al/dal server senza interferire con l'aspetto o il comportamento della 
+pagina esistente.
+
+-----------------------
+dynamically add content to our page
+-----------------------
+
+  $.get("api/trivia.html", function(tmpl){
+    $("#msg").html(tmpl);
+  });
+
+-----------------------
+Data exchanged in json format
+-----------------------
+
+  var jqxhr = $.getJSON( "api/trivia.json", function() {
+   console.log( "success" );
+  })
+  .done(function() {
+    console.log( "second success" );
+  })
+  .fail(function() {
+    console.log( "error" );
+  })
+  .always(function() {
+    console.log( "complete" );
+  });
+
+-----------------------
+SAME ORIGIN POLICY
+-----------------------
+Same origin policy impedisce a script malevoli di accedere a dati sensibili
+di un altra pagina. E' implementato nel seguente modo: un browser permette
+ad uno script contenuto in pagina A di accedere a dati
+contenuti in pagina B se e solo se A e B hanno la stessa "origin",
+definita come una combinazione di schema URI, hostname e num. di porta.
+
+Performing cross-origin calls -> JSONP
+--------------------------------------
+JSONP è una tecnica per acquisire dati da altre "origin".
+
+  $.get("https//randomword.setgetgo.com/get.php?callback=?", function(tmpl){
+    $("#msg").html(tmpl);
+  }).fail(function()
+    console.log( "error" );
+  });
+
+Callback è la funzione, per cui viene generato un identificativo casuale da JQuery.
+
+-----------------------
+esercizio json:
+-----------------------
+http://omdbapi.com/
+app per cercare movies inserendo nomi dei film con JSONP
+http://www.omdbapi.com/?t=game%20of%20thrones&season=1
+
+
+-----------------------
+-----------------------
+04/11/2015
+-----------------------
+-----------------------
+
+-----------------------
+CROSS DOMAIN CALLS
+-----------------------
+
+asincrona         -> faccio la richiesta,
+                     intanto che js aspetta risposta continua il flusso
+                     dopo fail o done si esegue complete
+                     => il render dei dati lo metto nel getJSON
+                     C'è un modo di fare un chain delle chiamate
+dinamica          -> pagina non viene ricaricata
+scambio           -> json (platform independent, NON js)
+HTMLHttpRequest() -> oggetto js che gestisce tutte le request
+
+JSON              -> per noi trasparente perché JQuery trasforma quando fai getJson,
+                     MA non è un oggetto js:                  
+                     2 functions:
+
+                     1. parse
+                        object js <- parse(stringa json)
+                        ES > JSON.parse('{"name":"john"}')
+                           < "{name:"john"}"
+                     2. stringify fa il contrario
+                        stringa <- oggetto js
+                        ES > JSON.stringify({name:"john"})
+                           < "{"name":"john"}"
+
+-----------------------
+CROSS ORIGIN POLICY
+-----------------------
+
+Policy di sicurezza nel browser: per default in un origin
+(sei in A google.com e l'altro origin è B unicredit.com)
+da A non puoi fare chiamata a B,
+perché un sito non friendly potrebbe voler ottenere bank account
+non consente cross domain calls
+google.com, yahoo.com, unicredit.com
+anche protocol: da http non posso chiamare https
+A volte voglio poter condividere risorse,
+es randomwords mi fornisce un servizio di random words
+=> JSONP, sfrutta chiamate di risorse fra diversi domains
+          risorse di tipo css, fonts da google, immagini
+          per efficiency per fare bilancio di load servizi che replicano dati
+          Quello che non puoi fare è chiamata ajax per ottenere i dati
+          però possiamo avere scripts
+  $.get("https//randomword.setgetgo.com/get.php?callback=?", function(tmpl){
+    $("#msg").html(tmpl);
+  }).fail(function()
+    console.log( "error" );
+  });
+  perché loro ci dicono che è compatible con JSONP
+
+  $getJSON("https//randomword.setgetgo.com/get.php?callback=?", function(json){
+    console.log(json);
+  });
+
+$.getScript("https://code.jquery.com/jquery-2.1.4.min.js")
+anche se per fare la chiamata devo già avere jquery
+
+-----------------------
+CROSS ORIGIN RESOURSE SHARING
+-----------------------
+
+lato server sviluppatore di google+.com
+decide di rendere disponibile risorsa a google.com
+
+openmovie bla bla questo va : Access-Control-Allow-Origin
+-> l'hanno reso disponibile per tutti =)
+
+Cos'è same domain policy e avere un'idea del workaround, no JSONP

@@ -1,0 +1,121 @@
+------------------------------
+------------------------------
+EMPATHY DRIVEN DESIGN
+riassunto da slide
+------------------------------
+------------------------------
+
+THE DESIGN THINKING PROCESS:
+ - Empathize
+ - Define
+ - Ideate
+ - Prototype
+ - Test
+
+PRINCIPLES
+
+ - Bias toward action
+ - Collaborate accross boundries
+ - Focus on human values
+ - Be mindful of process
+ - Prototype towars a solution
+ - Show don't tell
+
+
+How to: EMPHATIZE - DEFINE - IDEATE
+
+1. prepare for the day, review the plan
+2. go. interview, observe.
+3. unpack. share. get the data on the wall.
+4. synthesize needs and insights
+
+"EMPATHIZING" -> DISCOVER THE EMOTIONS THAT GUIDE BEHAVIORS
+• Observe
+• Engage
+• Immerse
+
+• No judging
+• Question everything
+• Be curious
+• Find patterns
+• Absorb. Be present to what people say. 
+
+FIND EXTREME USERS
+• People who overstress needs
+• They often make a need apparent, but the same need is shared by everybody
+  (Example: simplicity)
+
+OBSERVE
+• what: write down what a person is doing
+• how: how is the person doing it? effort? rush? pain? use adjectives
+• why: why people do that, and in that way? informed guesses on motivations and emotions
+
+INTERVIEW FOR EMPATHY
+Talk to people to understand what they need/feel. How:
+• Ask why - even when you think you know the answer.
+• Encourage stories
+• Look for inconsistencies between what people say and what they
+  do: they are very revealing of opportunities
+• Look at nonverbal cues
+• Don’t fear silence.
+• Do not suggest answers. Ask neutral questions. Listen.
+• No binary questions. look for conversations.
+• Be prepared to capture what people say.
+
+SHARE AND CAPTURE
+• share with the team
+• write down insights on postits or other means
+  (linoit, realtimeboard, gdoc)
+
+  say     | think
+  ---------------
+  do      | feel
+  
+  <--------------->
+  observed inferred
+
+DEFINE
+• select a point of view
+
+IDEATE: DONE VIA BRAINSTORMING
+• go for quantity
+• make sure you have space
+• all ideas are good
+• try bold ideas
+• stay on topic
+
+SELECT IDEAS
+• voting
+• go for variety: 1-2 ideas from each category.. simple
+  and rational, or delightful, or long shot.
+    try different prototypes
+
+PROTOTYPING
+• Anything that has a physical form, from storyboards to
+objects
+• Why?
+ - Explore, gain empathy, start a conversation
+ - reduce ambiguity, even in the team
+ - fail early (and cheaply)
+
+PROTOTYPE TO TEST
+• let user experience the solution (in some cases you may ask
+them to prototype). Observe, listen.
+• ideally, done in the context where the user would use it
+• don’t spend too much time on each
+• build with user in mind
+• identify the variable you want to test
+• it’s ok to fake functionality, try to be efficient and provide user experience
+
+FEEDBACK CAPTURE GRID
+  + what worked  |   - what could be improved
+  -------------------------------------------
+  ? questions    |   !ideas
+  
+APP PROTOTYPING TOOLS
+• POPapp
+• invisionAPP
+
+FEEDBACK GATHERING TOOLS
+• Google forms
+• Survey monkey, limesurvey

@@ -1,0 +1,107 @@
+------------------------------
+------------------------------
+SW DEVELOPMENT PROCESSES
+riassunto da slide
+------------------------------
+------------------------------
+
+- Dictates how a team goes about designing, developing, delivering, and
+  maintaining software
+
+- Today it's not (only) about the bugs... it's about satisfying complex and
+  relatively unknown user needs and creating the user experience
+
+------------------------------
+WATERFALL
+------------------------------
+
+1. FEASIBILITY -> Cost/benefits tradeoffs.
+               -> Preliminary price discussions.
+               -> Buy vs make
+
+2. REQUIREMENTS Engineering -> Initial focus on what qualities are needed,
+                            -> NOT on how to achieve them
+
+   Functional: defines what a function does (input, output, behavior,...)
+   VS
+   Non-functional: Portability, performance, security, maintainability,...
+
+   Assumes that (never happens):
+    • Customers know what they want
+    • Customers understand what can be provided
+    • We understand what they mean
+    • We collect all requirements and translate them into specifications
+    • We are able to identify and clarify ambiguities
+    • Requirements don't change over time
+
+3. Architecture and detailed DESIGN
+   • Define system architecture
+   • Specify the various modules, their interactions, detailed DB design
+
+4. CODING and module testing activity
+   • Deliverables: tested modules and test cases
+   Verification: requirements: Am I doing the job right?
+   VS
+   Validation:   user needs:   Am I doing the right job?
+
+5. Integration and acceptance TEST activity
+   • Put modules together, test links and functionality end to end
+
+6. Delivery, DEPLOYMENT, and MAINTENANCE activities
+   • real delivery may be preceded by beta testing
+   • Deployment -> components allocated on physical architecture
+
+WATERFALL
+  =( linear, rigid, monolithic
+     • Assumes requirements are clear and do not change
+     • Assumes plans do not change
+     • Assumes underlying technology does not change during the process
+      (or that we do not capture the benefits of new technology)
+
+------------------------------
+INCREMENTAL AND ITERATIVE MODELS
+------------------------------
+
+Incremental: build one part at a time, integrate progressively
+VS
+Incremental: go through improvement cycles 
+
+=) Deliver early (based on what is needed, and what can be done)
+=) Get feedback
+=) Revise goals and plan
+
+analysis -> design -> implementation -> testing
+ ^                                         |
+ |_________________________________________|
+
+------------------------------
+AGILE
+------------------------------
+
+The manifesto: “we value…
+- Individuals and interactions over processes and tools
+- Working software over comprehensive documentation
+- Customer collaboration over contract negotiation
+- Responding to change over following a plan
+
+PRINCIPLES:
+- Early, continuous and frequent delivery of valuable sw (working)
+- Welcome changing requirements
+- Business people and developers -> constant work together
+- Motivated individuals
+- Face-to-face conversation
+- Simplicity
+- Self organized teams
+- Teams adjusts processes
+
+------------------------------
+XP Principles
+------------------------------
+- Small releases
+- Customer on site
+- No overtime (reduces productivity)
+- Test-driven, continuous integration - tests first
+- Refactoring
+- Pair programming (code+tests)
+- Simplicity
+- Collective ownership
