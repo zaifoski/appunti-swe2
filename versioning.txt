@@ -68,3 +68,10 @@ cio che c'è sul server
 
   cioè faccio il checkout ad un branch che non ho creato io e
   del quale non ho ancora traccia in locale
+
+SEQUENZA PER ESAME
+  fork (così traccia) -> clone -> develop -> push del branch ->
+  lavoro qui -> push -> master -> merge -> push
+  il discorso del commit lo controlla solo se c'è nella richiesta
+
+  -u indica che faccio il push della branch

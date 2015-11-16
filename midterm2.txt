@@ -5,4 +5,10 @@ MIDTERM 2
 --------------------------------
 - jasmine
 - testing
+- blanket
 - qualità del codice
+
+--------------------------------
+INDICAZIONI PARTE PRATICA
+--------------------------------
+- all'esame individuo i bugs con jasmine ma NON LI CORREGGO

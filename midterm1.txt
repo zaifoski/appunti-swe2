@@ -45,24 +45,3 @@ User stories
   - fare pratica su sprint e storie su un sito che conosciamo
 
 Kanban -> visualizzazione workflow
-
-PARTE PRATICA
-
-- cosa fare quando utente vinceva -> non controlla se lo gestiamo,
-  perché non è specificato
-- $("#"+i).toggleClass('done','hidden');
-  
-  $( "#foo" ).toggleClass( className, addOrRemove );
-  is equivalent to:
-  if ( addOrRemove ) {
-    $( "#foo" ).addClass( className );
-  } else {
-    $( "#foo" ).removeClass( className );
-  }
-
-  fork (così traccia) -> clone -> develop -> push -> lavoro qui -> push -> master -> switch -> push
-  il discorso del commit lo controlla solo se c'è nella richiesta
-
-  -u indica che faccio il push della branch
-
-  item2 -> bonus point

@@ -197,4 +197,3 @@ trentose\07-blanket\water
 - <script type="text/javascript" src="js/water.js" data-cover></script>
   data-cover indica a blanket di fare un parsing di questo file
 - per farlo partire devo fare Anteprima Live
-- all'esame individuo i bugs con jasmine ma NON LI CORREGGO

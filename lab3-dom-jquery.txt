@@ -217,7 +217,25 @@ CROSS ORIGIN RESOURSE SHARING
 lato server sviluppatore di google+.com
 decide di rendere disponibile risorsa a google.com
 
-openmovie bla bla questo va : Access-Control-Allow-Origin
+openmovie
+-----------------------
+http://omdbapi.com/
+http://www.omdbapi.com/?t=game%20of%20thrones&season=1
+questo va : Access-Control-Allow-Origin
 -> l'hanno reso disponibile per tutti =)
 
 Cos'è same domain policy e avere un'idea del workaround, no JSONP
+
+-----------------------
+TOGGLE CLASS
+-----------------------
+
+- $("#"+i).toggleClass('done','hidden');
+  
+  $( "#foo" ).toggleClass( className, addOrRemove );
+  is equivalent to:
+  if ( addOrRemove ) {
+    $( "#foo" ).addClass( className );
+  } else {
+    $( "#foo" ).removeClass( className );
+  }
