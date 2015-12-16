@@ -75,3 +75,56 @@ SEQUENZA PER ESAME
   il discorso del commit lo controlla solo se c'è nella richiesta
 
   -u indica che faccio il push della branch
+--------------------------------
+http://gitready.com/intermediate/2009/02/12/easily-fetching-upstream-changes.html
+--------------------------------
+Configuring a remote for a fork
+--------------------------------
+
+git remote -v
+# origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
+# origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
+
+git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
+
+git remote -v
+# origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
+# origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
+# upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch)
+# upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)
+
+--------------------------------
+
+git remote add upstream https://github.com/mbaezpy/trentose-mailfilter.git
+git fetch upstream
+git checkout -b sprint2 upstream/sprint2
+
+--------------------------------
+
+When you fork, "origin" becomes your own repo, you need to do a couple of things in order to checkout a remote branch from the original owner.
+
+Initially, you would have only your own repository as "remote" when working locally. Your repo is identified as "origin". Try this and you'll see:
+
+git remote -v
+
+
+1- First, you should add a new remote that points to the upstream of the original repository.
+
+git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
+
+so:
+git remote add upstream https://github.com/mbaezpy/trentose-mailfilter.git
+
+try again: git remote -v and you will see the original repository linked as "upstream"
+
+2- You should fetch the branches from upstream (essentially update you local metadata)
+
+git fetch upstream
+
+3- You should checkout the branch but instead of referencing "origin" (as we usually do) point to "upstream"
+
+git checkout -b sprint2 upstream/sprint2
+
+4- Push it to your repository.  What you have done was essentially to checkout locally a remote branch from the forked repository. To publish it on your remote repo, you should push it to "origin"
+
+git push -u origin sprint2

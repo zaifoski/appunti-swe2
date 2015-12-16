@@ -123,7 +123,7 @@ LOOP COVERAGE
 - Ogni loop sia eseguito 0, 1 e più di 1 volta.
 
 MODIFIED CONDITION DECISION COVERAGE (MC/DC)
-- Usati solo per per mattoni usati da tanti altri sw o per safety-critical
+- Usati solo per mattoni usati da tanti altri sw o per safety-critical
 - Branch coverage + ogni termine della condizione prenda vero o falso
 ES: if A or (B and C): ecc
     - provo A vero e A falso, bloccando (B and C), in modo che A sia decisivo:
